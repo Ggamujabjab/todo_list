@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
+import Navi from "./components/Navi";
 import Home from "./page/Home";
-import Photo from "./page/Photo";
-import Room from "./page/Room";
+import Todo from "./page/Todo";
 
 // Div 태그
 const divTag = styled.div``;
@@ -18,13 +18,10 @@ function App() {
   return (
     <BrowserRouter>
       <LayoutWrap>
-        <Link to="/">홈</Link>
-        <Link to="/photo">사진</Link>
-        <Link to="/room">방 소개</Link>
+        <Navi></Navi>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/photo" element={<Photo />} />
-          <Route path="/room" element={<Room />} />
+          <Route path="/todo" element={<Todo />} />
         </Routes>
       </LayoutWrap>
     </BrowserRouter>
