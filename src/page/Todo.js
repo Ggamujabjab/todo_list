@@ -4,7 +4,7 @@ import TodoList from "../components/TodoList";
 
 function Todo(){
     const [todoCount, setTodoCount] = useState(1);
-    const [todoInputText, setTodoInputText] = useState("너무 좋아");
+    const [todoInputText, setTodoInputText] = useState("");
     const [todoData, setTodoData] = useState([]);
 
     // 현재 idx 카운트
@@ -18,14 +18,24 @@ function Todo(){
     };
 
     // 목록 리스트 생성
-    const evtListCreate = () => {
-        setTodoData(( currentArray ) => [...currentArray, { idx : todoCount, check : false, text : todoInputText }]);
+    const evtListCreate = (value) => {
+        setTodoData(( currentArray ) => [...currentArray, { idx : todoCount, check : false, text : value }]);
     };
+
+    // 목록 체크
+    const evtListCheck = (index) => {
+        console.log(index, todoData);
+        todoData.map(( item, index ) => {
+            item.filter(( obj, index ) => {
+                console.log(obj, index);
+            });
+        });
+    }
     
     return (
         <Fragment>
             <TodoInput propsText={todoInputText} evtAutoCount={evtAutoCount} evtInputValue={evtInputValue} evtListCreate={evtListCreate} />
-            <TodoList todoData={todoData} />
+            <TodoList todoData={todoData} evtListCheck={evtListCheck} />
         </Fragment>
     )
 }

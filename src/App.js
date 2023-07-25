@@ -1,29 +1,27 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import styled from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
 import Navi from "./components/Navi";
 import Home from "./page/Home";
 import Todo from "./page/Todo";
+import Sample from "./page/Sample";
 
-// Div 태그
-const divTag = styled.div``;
-const pTag = styled.p``;
-
-const LayoutWrap = styled.div`
-  padding:20;
-  border:5px solid gray;
+const GlobalStyle = createGlobalStyle`
+  body {
+    background:#eee;
+  }
 `;
 
 function App() {
   return (
     <BrowserRouter>
-      <LayoutWrap>
-        <Navi></Navi>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/todo" element={<Todo />} />
-        </Routes>
-      </LayoutWrap>
+      <GlobalStyle />
+      <Navi />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/todo" element={<Todo />} />
+        <Route path="/sample" element={<Sample />} />
+      </Routes>
     </BrowserRouter>
   );
 }

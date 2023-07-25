@@ -13,18 +13,18 @@ const ListLabel = styled(LabelTag)`
 `;
 
 function TodoItem(props){
-    const [index, setIndex] = useState(`cnt_item${props.index}`);
+    const [index, setIndex] = useState(`cnt_item${props.index+1}`);
 
     // 활성화
-    const evtListActive = () => {
-        console.log(props.data.check);
+    const evtListActive = (e) => {
+        props.evtListCheck(props.index);
     };
 
     return (
         <Fragment>
             <ListForm>
                 <InputTag type="checkbox" id={index} checked={props.data.check} onChange={evtListActive} />
-                <ListLabel for={index}>{props.data.text}</ListLabel>
+                <ListLabel htmlFor={index}>{props.data.text}</ListLabel>
             </ListForm>
         </Fragment>
     )

@@ -31,6 +31,7 @@ function Navi(){
             <MenuUl>
                 <MenuLi><LinkTag to="/">Home</LinkTag></MenuLi>
                 <MenuLi><LinkTag to="/todo">Todo</LinkTag></MenuLi>
+                <MenuLi><LinkTag to="/sample">Sample</LinkTag></MenuLi>
             </MenuUl>
         </>
     )

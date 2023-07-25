@@ -20,24 +20,30 @@ function TodoInput(props){
         // 기본기능삭제
         e.preventDefault();
 
+        console.log(inputValue);
+
         // 리스트 목록 카운트
         props.evtAutoCount();
         // 리스트 목록 텍스트 저장
         props.evtInputValue(inputValue);
         // 리스트 목록 저장
-        props.evtListCreate();
+        props.evtListCreate(inputValue);
     }
 
     // 검색어 텍스트 저장
     const evtChangeValue = (e) => {
+        // 현재 입력한 텍스트값
         setInputValue(e.target.value);
+
+        // 입력텍스트
+        props.evtInputValue(e.target.value);
     }
 
     return (
         <Fragment>
             <SearchForm onSubmit={evtSubmitForm}>
                 <FormTag>
-                    <SearchInput onChange={evtChangeValue} />
+                    <SearchInput value={props.propsText} onChange={evtChangeValue} />
                     <SearchBtn type="submit">추가</SearchBtn>
                 </FormTag>
             </SearchForm>

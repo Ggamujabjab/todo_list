@@ -8,13 +8,15 @@ const DivTag = styled.div``;
 const ListForm = styled(DivTag)``;
 
 function TodoList(props){
-    console.log(props.todoData);
+    // 목록
+    const todoListItem = props.todoData.map(( item, index ) => {
+        return <TodoItem key={index} data={item} index={index} evtListCheck={props.evtListCheck} />;
+    });
+    
     return (
         <Fragment>
             <ListForm>
-                { props.todoData.map(( item, index ) => {
-                    return <TodoItem key={index} data={item} index={index} />;
-                })}
+                {todoListItem}
             </ListForm>
         </Fragment>
     )
