@@ -1,24 +1,23 @@
 import React from 'react';
 
-function CreateUser({ username, email, inputName, onChange, onCreate }){
+function CreateUser({ username, email, onChange, onCreate }){
     return (
         <div>
             <input
                 name="username"
                 placeholder="계정명"
-                onChange={onChange}
                 value={username}
-                ref={inputName}
+                onChange={onChange}
             />
             <input
                 name="email"
                 placeholder="이메일"
-                onChange={onChange}
                 value={email}
+                onChange={onChange}
             />
             <button type="button" onClick={onCreate}>등록</button>
         </div>
     )
 }
 
-export default CreateUser;
+export default React.memo(CreateUser);
